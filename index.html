@@ -23,8 +23,8 @@
   -->
   <!--
 
-  Modified by Nolan Lawson!  (http://nolanlawson.com).  I'm keeping the spirit of the
-  GPL alive by issuing this with the same license!
+  Modified by Nolan Lawson (http://nolanlawson.com) and Carles Sala (https://github.com/csala).
+  I'm keeping the spirit of the GPL alive by issuing this with the same license!
 
   -->
 
@@ -82,7 +82,7 @@
 	<script>
 	(function($){
 	  "use strict";
-	  var FOLDER_PATTERN = new RegExp('_\\$folder\\$$');
+	  var FOLDER_PATTERN = new RegExp('\/$');
 	  var TYPE_PATTERN = new RegExp('\\.([^\\.\\s]{1,10})$');
 		var KB = 1024;
 		var MB = 1000000;
@@ -154,7 +154,9 @@
 					 $element.find('Key').text()
 				);
 
-				filesOrFolders.push(fileOrFolder);
+				if (fileOrFolder.simpleFilename != "index.html") {
+					filesOrFolders.push(fileOrFolder);
+				}
 			});
 
 			// sort
